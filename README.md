@@ -3,9 +3,9 @@
 ![two-tier-arch-image-fixed](https://user-images.githubusercontent.com/88166874/131900069-8efd6227-b859-4ea0-bae7-fca9f185a32d.png)  
 
 > This guide uses the EC2 Instance setup instructions from [intro_to_cloud_computing_AWS](https://github.com/am93596/intro_to_cloud_computing_AWS)
-> and the app folder from [SRE_Intro_To_Cloud_Computing](https://github.com/am93596/SRE_Intro_To_Cloud_Computing).
+> and the app folder from [SRE_Intro_To_Cloud_Computing](https://github.com/am93596/SRE_Intro_To_Cloud_Computing).  
 
-![db-instance-img](https://user-images.githubusercontent.com/88166874/131902673-5e8657ff-22c4-43eb-826c-d552050bd96f.png)
+![db-and-app-instance-diagram](https://user-images.githubusercontent.com/88166874/131906372-30678efb-c40f-4e58-badd-9d91051e1ac1.png)
 
 ## Making AMIs from EC2 Instances
 ### Create the db AMI
