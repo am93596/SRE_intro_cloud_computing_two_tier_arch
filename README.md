@@ -1,4 +1,7 @@
-# Two Tier Architecture
+# Two Tier Architecture  
+
+![two-tier-arch-image-fixed](https://user-images.githubusercontent.com/88166874/131900069-8efd6227-b859-4ea0-bae7-fca9f185a32d.png)  
+
 ## AWS Introduction  
 **UNFINISHED**  
 Amazon Web Services (AWS)
