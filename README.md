@@ -1,4 +1,8 @@
-# Two Tier Architecture  
+# Two Tier Architecture with Amazon Web Services (AWS)  
+
+![aws-image](https://user-images.githubusercontent.com/88166874/131985801-faadee4a-50fb-44fb-b26a-b4d6c1cbf11b.gif)
+
+AWS is a widely used cloud computing service provider from Amazon. They offer a wide variety of services, including Simple Storage Service (S3), Virtual Private Cloud (VPC), and Elastic Compute Cloud (EC2). All AWS services are available on a pay-as-you-go basis, making them more economical for large apps and organisations than using on-premises servers and data centres.   
 
 ![two-tier-arch-image-fixed](https://user-images.githubusercontent.com/88166874/131900069-8efd6227-b859-4ea0-bae7-fca9f185a32d.png)  
 
@@ -33,11 +37,30 @@
 
 ![path-from-ec2-instance-to-ec2-copies](https://user-images.githubusercontent.com/88166874/131904372-50c7e832-f8a0-489e-84b9-8cc137755310.png)
 
-
 ### Create the app AMI
 - Exit and repeat the above instructions (from `Create the db AMI` to `Connect to the new instance`) for the app instance
 ### Connect the db AMI Instance to the app AMI Instance
 - In the Security Group of the db AMI EC2 instance, change the TCP for port 27017 source IP to the IP for the app AMI instance, then save
+### Final command in the db AMI EC2 instance
+- SSH into the db AMI EC2 instance
+- `sudo nano /etc/mongod.conf`
+- Change the bindip to 0.0.0.0
+- CTRL-X, then `y` (saves and closes)
+- `sudo systemctl restart mongod`
+- `exit`
 ### Correct the DB_HOST IP address
 - SSH into the app AMI EC2 instance, and reset the DB_HOST -> change the IP section to the new IP for the db AMI instance IP
+### Final commands in app AMI EC2 instance
+- `sudo nano /etc/nginx/sites-available/default`
+- Replace the contents of the first `location` section with:
+```
+proxy_pass http://localhost:3000;      
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection 'upgrade'; 
+proxy_set_header Host $host;
+proxy_cache_bypass $http_upgrade;
+```
+- CTRL-X, then `y` (saves and closes)
+- `sudo nginx -t` -> should pass
 - Then `cd app` and `npm start`
