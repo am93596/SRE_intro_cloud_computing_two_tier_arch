@@ -31,7 +31,7 @@ AWS is a widely used cloud computing service provider from Amazon. They offer a 
 
 ### Connect to the new instance
 - Select the instance and click connect
-- Copy the code in the example section of step 4 of the SSH connection page  
+- Copy the code in the example section of step 4 of the SSH connection page; switch out the word `root` for `ubuntu` and make sure the key path is correct  
 > You are now in the db instance that you created from your AMI!
 > You can make multiple instances from one AMI by following the instructions from the `Create the db AMI` section above, as many times as needed!
 
